@@ -43,7 +43,7 @@ class PlazaVea():
     elementMark = self.driver.find_element_by_xpath('/html[1]/body[1]/div[3]/div[4]/div[4]/div[1]/div[1]/span[1]/div[1]/a[1]')
     mark = elementMark.text
 
-    [] lista = self.driver.find_elements(By.XPATH('//*[@id="caracteristicas"]/table/tbody/tr[1]/th'))
+    lista = self.driver.find_elements(By.XPATH('//*[@id="caracteristicas"]/table/tbody/tr[1]/th'))
 
 
     self.driver.close()
