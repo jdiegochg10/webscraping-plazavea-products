@@ -69,7 +69,7 @@ class PlazaVea():
     #get urls of all products 
     allProducts = self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/div/section[2]/div[2]/div[2]/div[2]/div[2]/div')
     for iprod, allProduct in enumerate(allProducts.find_elements(By.CLASS_NAME, 'Showcase__name')):
-      if (iprod < 20):
+      if (iprod < 4):
         urlProducto = allProduct.get_attribute("href")        
         self.driver.execute_script("window.open('');")
         self.driver.switch_to.window(self.driver.window_handles[1])          
@@ -100,6 +100,9 @@ class PlazaVea():
 
         if self.driver.find_element_by_xpath('/html/body/div[3]/div[4]/div[1]/div[4]/div[2]/div[8]/span[1]').get_attribute('class') == 'ProductCard__marketplace__logo-text':
           getCorpSell = self.driver.find_element_by_xpath('/html/body/div[3]/div[4]/div[1]/div[4]/div[2]/div[8]/span[1]').text
+          getCorpSellFlag = 1          
+        elif self.driver.find_element_by_xpath('/html/body/div[3]/div[4]/div[1]/div[4]/div[2]/div[8]/span[1]').get_attribute('class') == 'ProductCard__marketplace__logo':
+          getCorpSell = self.driver.find_element(By.XPATH, '/html/body/div[3]/div[4]/div[1]/div[4]/div[2]/div[8]/span[1]').value_of_css_property('background-image')
           getCorpSellFlag = 1
         else:
           getCorpSell = ''
